@@ -2,11 +2,8 @@
   %p#notice
     = notice
 %h1 Store Product
+.row.placeholders
 - cache ['store', Product.all] do
   - @products.each do |product|
     - cache ['entry', product] do
-      .entry
-        %h3= product.title
-        .price_line
-          %span.price= number_to_currency(product.price)
-          = button_to 'add to cart' , line_items_path(product_id: product)
+      = render partial: 'product', locals: {product: product}
