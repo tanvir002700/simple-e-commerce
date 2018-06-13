@@ -1,0 +1,32 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name),
+    html: { role: 'form', class: 'form-horizontal' }) do |f|
+
+  .form-group
+    .col-sm-offset-4.col-sm-4
+      %h2.form-signing-heading Please Sign in
+
+  .form-group
+    .col-sm-4.text-right
+      = f.label :email, class: 'control-label'
+    .col-sm-4
+      = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Enter Email'
+  %br
+  .form-group
+    .col-sm-4.text-right
+      = f.label :password, class: 'control-label'
+    .col-sm-4
+      = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Enter password'
+
+  .form-group
+    .col-sm-offset-4.col-sm-4
+      - if devise_mapping.rememberable?
+        %span.checkbox.pull-left
+          %label
+            = f.check_box :remember_me
+            |  Remember me
+      %span.pull-right
+        = f.submit 'Log in', class: 'btn btn-primary'
+
+  .form-group
+    .col-sm-offset-4.col-sm-4
+      = render "devise/shared/links"

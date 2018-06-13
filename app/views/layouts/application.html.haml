@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
+    %title
+      = content_for?(:title) ? yield(:title) : 'Demo-Rails'
+    %meta{name:"description", content:"#{content_for?(:description) ? yield(:description) : 'Demo'}"}
+    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'layouts/application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    =render 'application/header'
+
+    .container-fluid
+      .row
+        =render 'application/sidebar'
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          =render 'application/flash_msg'
+          = yield
