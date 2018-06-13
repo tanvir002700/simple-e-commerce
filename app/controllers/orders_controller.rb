@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   def edit; end
 
   def create
-    @order = Order.new(order_params.merge({line_items: @cart.line_items}))
+    @order = current_user.orders.new(order_params.merge({line_items: @cart.line_items}))
 
     respond_to do |format|
       if @order.save
