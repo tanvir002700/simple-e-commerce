@@ -1,8 +1,14 @@
-%p#notice= notice
-
-%h1 Your Cart
-%table
-  = render partial: 'line_item', collection: @cart.line_items
+%h2.sub-header Section title
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Title
+        %th Image
+        %th Price
+    %tbody
+      = render partial: 'line_item', collection: @cart.line_items
 
 = link_to "Checkout", new_order_path
 = button_to 'Empty cart', @cart, method: :delete, data:{confirm: 'are you sure? '}

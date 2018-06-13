@@ -1,3 +1,5 @@
 %tr
-  %td line_item.product.title
-  %td line_item.product.price
+  %td= line_item.product.id
+  %td= line_item.product.title
+  %td= image_tag line_item.product.img_url, size: '50x50'
+  %td= line_item.product.price

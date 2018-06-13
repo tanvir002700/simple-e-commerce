@@ -12,9 +12,9 @@
       %a{:href => "#"} Export
   %ul.nav.nav-sidebar
     %li
-      %a{:href => ""} Nav item
+      = link_to 'Cart', cart_path('-')
     %li
-      %a{:href => ""} Nav item again
+      = link_to 'Store', store_index_path
     %li
       %a{:href => ""} One more nav
     %li
