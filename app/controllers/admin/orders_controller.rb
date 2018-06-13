@@ -11,20 +11,16 @@ module Admin
     def edit; end
 
     def update
-      respond_to do |format|
-        if @order.update(order_params)
-          format.html { redirect_to [:admin, @order], notice: 'Order was successfully updated.' }
-        else
-          format.html { render :edit }
-        end
+      if @order.update(order_params)
+        redirect_to [:admin, @order], notice: 'Order was successfully updated.'
+      else
+        render :edit
       end
     end
 
     def destroy
       @order.destroy
-      respond_to do |format|
-        format.html { redirect_to admin_orders_url, notice: 'Order was successfully destroyed.' }
-      end
+      redirect_to admin_orders_url, notice: 'Order was successfully destroyed.'
     end
 
     private
