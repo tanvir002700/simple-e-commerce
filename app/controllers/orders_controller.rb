@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.all
+    @orders = current_user.orders
   end
 
   def show; end
@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
 
   private
     def set_order
-      @order = Order.find(params[:id])
+      @order = current_user.orders.find(params[:id])
     end
 
     def order_params
