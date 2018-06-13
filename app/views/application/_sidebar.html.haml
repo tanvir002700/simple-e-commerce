@@ -2,29 +2,20 @@
   %ul.nav.nav-sidebar
     %li.active
       %a{:href => "#"}
-        Overview
+        Admin
         %span.sr-only (current)
     %li
-      %a{:href => "#"} Reports
+      = link_to 'Products', admin_products_path
     %li
       %a{:href => "#"} Analytics
     %li
       %a{:href => "#"} Export
   %ul.nav.nav-sidebar
+    %li.active
+      %a{:href => "#"}
+        Shop
+        %span.sr-only (current)
     %li
       = link_to 'Cart', cart_path('-')
     %li
       = link_to 'Store', store_index_path
-    %li
-      %a{:href => ""} One more nav
-    %li
-      %a{:href => ""} Another nav item
-    %li
-      %a{:href => ""} More navigation
-  %ul.nav.nav-sidebar
-    %li
-      %a{:href => ""} Nav item again
-    %li
-      %a{:href => ""} One more nav
-    %li
-      %a{:href => ""} Another nav item
