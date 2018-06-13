@@ -18,5 +18,8 @@
   .field
     = f.label :pay_type
     = f.text_field :pay_type
+  .field
+    = f.label :status
+    = f.select :status, Order.statuses.keys
   .actions
     = f.submit 'Save'

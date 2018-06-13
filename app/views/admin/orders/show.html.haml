@@ -12,6 +12,9 @@
 %p
   %b Pay type:
   = @order.pay_type
+%p
+  %b Pay type:
+  = @order.status
 
 = link_to 'Edit', edit_admin_order_path(@order)
 \|
