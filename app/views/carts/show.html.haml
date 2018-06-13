@@ -4,7 +4,7 @@
 %table
   = render partial: 'line_item', collection: @cart.line_items
 
-= button_to "Checkout", new_order_path, method: :get
+= link_to "Checkout", new_order_path
 = button_to 'Empty cart', @cart, method: :delete, data:{confirm: 'are you sure? '}
 
 
