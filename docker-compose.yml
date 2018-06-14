@@ -1,0 +1,28 @@
+version: "3"
+
+volumes:
+  db-data:
+    external: false
+  es-data:
+    external: false
+
+services:
+  db:
+    image: postgres
+    env_file: .env
+    volumes:
+      - db-data:/var/lib/postgresql/db-data
+
+  elasticsearch:
+    image: elasticsearch
+    volumes:
+      - es-data:/usr/share/elasticsearch/es-data
+
+  app:
+    build: .
+    env_file: .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - elasticsearch
