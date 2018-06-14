@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   resources :products
-  resources :store
+  resources :store, only: [:index]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   namespace :admin do
@@ -11,7 +11,5 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :home, only: [:index]
-  root to: 'home#index'
+  root to: 'store#index'
 end
