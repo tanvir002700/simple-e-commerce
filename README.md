@@ -1,24 +1,8 @@
-# README
+# A simple E commerce 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup with Docker
+docker-compose up
 
-Things you may want to cover:
+After running the server, open a new terminal and run
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+docker-compose run app rake db:setup
