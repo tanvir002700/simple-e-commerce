@@ -5,4 +5,6 @@ class Product < ApplicationRecord
   include Elasticsearch::Model::Callbacks
 
   has_many :line_items, dependent: :destroy
+
+  validates :title, :img_url, :price, presence: true
 end
