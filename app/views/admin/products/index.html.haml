@@ -4,6 +4,7 @@
   %thead
     %tr
       %th Title
+      %th Description
       %th Img url
       %th Price
       %th
@@ -14,6 +15,7 @@
     - @products.each do |product|
       %tr
         %td= product.title
+        %td=  truncate(product.description, length: 80)
         %td= image_tag(product.img_url, size: '100x100')
         %td= product.price
         %td= link_to 'Show', [:admin, product]
