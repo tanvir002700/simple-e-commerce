@@ -1,22 +1,23 @@
-= form_for @order do |f|
-  - if @order.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      %ul
-        - @order.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_area :address
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :pay_type
-    = f.text_field :pay_type
-  .actions
-    = f.submit 'Save'
+= form_for @order, html: {class: 'form-horizontal'} do |f|
+  %fieldset
+    .form-group
+      %label.col-lg-2.control-label Name
+      .col-lg-5
+        =f.text_field :name, class: 'form-control', placeholder: 'Name'
+    .form-group
+      %label.col-lg-2.control-label Address
+      .col-lg-5
+        =f.text_field :address, class: 'form-control', placeholder: 'Address'
+    .form-group
+      %label.col-lg-2.control-label Email
+      .col-lg-5
+        =f.text_field :email, class: 'form-control', placeholder: 'Email'
+    .form-group
+      %label.col-lg-2.control-label Pay Type
+      .col-lg-5
+        =f.text_field :pay_type, class: 'form-control', placeholder: 'Pay Type'
+    .form-group
+      .col-lg-2.col-lg-offset-2
+        = f.submit class: 'btn btn-primary btn-block'
+      .col-lg-2
+        = link_to 'Cancel', :back, class: 'btn btn-info btn-block'
