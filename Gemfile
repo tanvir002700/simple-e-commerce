@@ -18,7 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'mini_magick'
-gem "haml-rails", "~> 0.9"
+gem "haml-rails", "~> 1.0"
 gem 'puma', '~> 3.0'
 gem 'pundit'
 gem 'rails', '~> 5.1'
