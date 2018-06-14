@@ -26,7 +26,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'tzinfo-data', platforms: %I[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'validates_email_format_of', '~> 1.6', '>= 1.6.3'
-gem 'mysql2', '~> 0.3.18'
+gem 'pg'
 
 group :development do
   gem 'better_errors'

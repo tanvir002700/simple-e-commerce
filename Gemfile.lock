@@ -185,7 +185,6 @@ GEM
     minitest (5.10.2)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    mysql2 (0.3.21)
     nested_scaffold (1.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -369,7 +368,6 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   mini_magick
-  mysql2 (~> 0.3.18)
   nested_scaffold
   pg
   pry-rails
