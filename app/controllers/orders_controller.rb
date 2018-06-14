@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        @order.line_items.update_all(cart_id: nil)
+        @cart.delete
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
       else
         format.html { render :new }
