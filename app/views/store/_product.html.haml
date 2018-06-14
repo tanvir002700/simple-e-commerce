@@ -1,5 +1,7 @@
 .col-xs-6.col-sm-3.placeholder.entry
   = image_tag(product.img_url, class: 'img-responsive', size: '200x200')
   %h4= product.title
-  %span.price= number_to_currency(product.price)
+  %p= truncate(product.description, length: 100)
+  %span
+    %strong= number_to_currency(product.price)
   = button_to 'add to cart' , line_items_path(product_id: product)

@@ -1,0 +1,7 @@
+= form_tag store_index_path, class: 'search-field', role: 'search', method: :get do |f|
+  .row
+    .col-md-6.col-md-offset-3
+      .input-group.input-group-lg
+        = text_field_tag :q, params[:q], class: 'form-control', placeholder: 'search product'
+        %span.input-group-btn
+          = button_tag "Search", class: 'btn btn-success', name: nil
