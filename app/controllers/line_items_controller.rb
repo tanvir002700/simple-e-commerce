@@ -5,10 +5,8 @@ class LineItemsController < ApplicationController
     product = Product.find(params[:product_id])
     @line_item = @cart.line_items.build(product: product)
 
-    respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to store_index_path, notice: 'Line item was successfully created.' }
-      end
+    if @line_item.save
+      redirect_to store_index_path, notice: 'Line item was successfully created.'
     end
   end
 

@@ -14,13 +14,11 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.new(order_params.merge({line_items: @cart.line_items}))
 
-    respond_to do |format|
-      if @order.save
-        @cart.delete
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @order.save
+      @cart.delete
+      redirect_to @order, notice: 'Order was successfully created.'
+    else
+      render :new
     end
   end
 
