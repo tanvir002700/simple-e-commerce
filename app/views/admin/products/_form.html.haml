@@ -1,22 +1,23 @@
-= form_for [:admin, @product] do |f|
-  - if @product.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
-      %ul
-        - @product.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :img_url
-    = f.text_field :img_url
-  .field
-    = f.label :price
-    = f.number_field :price
-  .actions
-    = f.submit 'Save'
+= form_for [:admin, @product],  html: {class: 'form-horizontal'} do |f|
+  %fieldset
+    .form-group
+      %label.col-lg-2.control-label Title
+      .col-lg-10
+        =f.text_field :title, class: 'form-control', placeholder: 'Title'
+    .form-group
+      %label.col-lg-2.control-label Description
+      .col-lg-10
+        =f.text_area :description, class: 'form-control', placeholder: 'Descriptino', rows: 5
+    .form-group
+      %label.col-lg-2.control-label Image Url
+      .col-lg-10
+        =f.text_field :img_url, class: 'form-control', placeholder: 'Image Url'
+    .form-group
+      %label.col-lg-2.control-label Price
+      .col-lg-10
+        =f.text_field :price, class: 'form-control', placeholder: 'Price'
+    .form-group
+      .col-lg-6
+        = f.submit class: 'btn btn-primary btn-block'
+      .col-lg-6
+        = link_to 'Cancel', :back, class: 'btn btn-info btn-block'
