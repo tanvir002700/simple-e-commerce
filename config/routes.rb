@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   resources :orders, except: [:edit, :update, :destroy]
-  resources :line_items
+  resources :line_items, only: [:create]
   resources :carts, only: [:show, :destroy]
   resources :products
   resources :store, only: [:index]
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   namespace :admin do
     resources :products
