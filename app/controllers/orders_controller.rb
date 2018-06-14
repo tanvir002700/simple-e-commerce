@@ -11,8 +11,6 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def edit; end
-
   def create
     @order = current_user.orders.new(order_params.merge({line_items: @cart.line_items}))
 
@@ -23,23 +21,6 @@ class OrdersController < ApplicationController
       else
         format.html { render :new }
       end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
     end
   end
 

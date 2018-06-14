@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :orders
+  resources :orders, except: [:edit, :update, :destroy]
   resources :line_items
   resources :carts
   resources :products
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
-    resources :orders
+    resources :orders, except: [:new, :create]
   end
 
   root to: 'store#index'
