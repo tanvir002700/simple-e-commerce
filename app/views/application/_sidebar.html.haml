@@ -1,15 +1,15 @@
 .col-sm-3.col-md-2.sidebar.well
-  %ul.nav.nav-sidebar
-    %li.active
-      %a{:href => "#"}
-        Admin
-        %span.sr-only (current)
-    %li
-      = link_to 'Products', admin_products_path
-    %li
-      = link_to 'Orders', admin_orders_path
-    %li
-      %a{:href => "#"} Export
+  - if current_user.present? && current_user.role == 'admin'
+    %ul.nav.nav-sidebar
+      %li.active
+        %a{:href => "#"}
+          Admin
+          %span.sr-only (current)
+      %li
+        = link_to 'Products', admin_products_path
+      %li
+        = link_to 'Orders', admin_orders_path
+
   %ul.nav.nav-sidebar
     %li.active
       %a{:href => "#"}
