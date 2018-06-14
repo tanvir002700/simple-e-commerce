@@ -1,0 +1,9 @@
+%tr
+  %td= order.name
+  %td= order.address
+  %td= order.email
+  %td= order.pay_type
+  %td= order.status
+  %td= link_to 'Show', [:admin, order]
+  %td= link_to 'Edit', edit_admin_order_path(order)
+  %td= link_to 'Destroy', [:admin, order], :method => :delete, :data => { :confirm => 'Are you sure?' }

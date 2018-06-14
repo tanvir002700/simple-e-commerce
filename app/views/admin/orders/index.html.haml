@@ -1,24 +1,15 @@
-%h1 Listing orders
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Address
-      %th Email
-      %th Pay type
-      %th
-      %th
-      %th
-
-  %tbody
-    - @orders.each do |order|
+%h2.sub-header Listing Orders
+.table-responsive
+  %table.table.table-striped
+    %thead
       %tr
-        %td= order.name
-        %td= order.address
-        %td= order.email
-        %td= order.pay_type
-        %td= link_to 'Show', [:admin, order]
-        %td= link_to 'Edit', edit_admin_order_path(order)
-        %td= link_to 'Destroy', [:admin, order], :method => :delete, :data => { :confirm => 'Are you sure?' }
-%br
+        %th Name
+        %th Address
+        %th Email
+        %th Payment
+        %th Status
+        %th
+        %th
+        %th
+    %tbody
+      = render partial: 'order', collection: @orders
