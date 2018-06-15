@@ -1,24 +1,25 @@
-%h2.sub-header Section title
-.table-responsive
-  %table.table.table-striped
-    %thead
-      %tr
-        %th #
-        %th Title
-        %th Image
-        %th Price
-    %tbody
-      = render partial: 'line_item', collection: @cart.line_items
-      %tr.total_line
-        %td{:colspan => "2"}
-          %strong Total
-        %td.total_cell
-          %strong= number_to_currency(@cart.total_price)
+%h2.sub-header Cart
+- if @cart.line_items.present?
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th Title
+          %th Image
+          %th Price
+      %tbody
+        = render partial: 'line_item', collection: @cart.line_items
+        %tr.total_line
+          %td{:colspan => "2"}
+            %strong Total
+          %td.total_cell
+            %strong= number_to_currency(@cart.total_price)
 
-.row
-  .col-md-3
-    = link_to "Checkout", new_order_path, class: 'btn btn-success'
-  .col-md-3
-    = button_to 'Empty cart', @cart, method: :delete, data:{confirm: 'are you sure? '}, class: 'btn btn-danger'
-
-
+  .row
+    .col-md-3
+      = link_to "Checkout", new_order_path, class: 'btn btn-success'
+    .col-md-3
+      = button_to 'Empty cart', @cart, method: :delete, data:{confirm: 'are you sure? '}, class: 'btn btn-danger'
+- else
+  %h3 Cart is Empty
