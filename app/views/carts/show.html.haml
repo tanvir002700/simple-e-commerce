@@ -9,8 +9,16 @@
         %th Price
     %tbody
       = render partial: 'line_item', collection: @cart.line_items
+      %tr.total_line
+        %td{:colspan => "2"}
+          %strong Total
+        %td.total_cell
+          %strong= number_to_currency(@cart.total_price)
 
-= link_to "Checkout", new_order_path
-= button_to 'Empty cart', @cart, method: :delete, data:{confirm: 'are you sure? '}
+.row
+  .col-md-3
+    = link_to "Checkout", new_order_path, class: 'btn btn-success'
+  .col-md-3
+    = button_to 'Empty cart', @cart, method: :delete, data:{confirm: 'are you sure? '}, class: 'btn btn-danger'
 
 

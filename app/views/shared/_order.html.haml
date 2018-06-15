@@ -1,15 +1,16 @@
-%p
-  %b Name:
-  = @order.name
-%p
-  %b Address:
-  = @order.address
-%p
-  %b Email:
-  = @order.email
-%p
-  %b Pay type:
-  = @order.pay_type
-%p
-  %b Pay type:
-  = @order.status
+.card.mb-3
+  %h3.card-header Order
+  .card-body
+    %h5.card-title= @order.name
+    %h6.card-subtitle= @order.address
+    %h6.card-subtitle= @order.email
+    %h6.card-subtitle.text-muted= @order.pay_type
+    %h6.card-subtitle.text-muted= @order.status
+    %h6.card-subtitle.text-muted= number_to_currency(@order.total_price)
+  .card-body
+    %h4.card-title Products
+    %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+  %ul.list-group.list-group-flush
+    - @order.products.each do |product|
+      %li.list-group-item= "#{product.title} - #{number_to_currency(product.price)}"
+  Total: "#{number_to_currency(@order.total_price)}"
