@@ -11,3 +11,8 @@
         %th
     %tbody
       = render partial: 'product', collection: @products
+
+.digg_pagination
+  .page_info
+    = page_entries_info @products
+  = will_paginate @products, :container => false

@@ -3,7 +3,7 @@ module Admin
     before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     def index
-      @products = Product.all
+      @products = Product.paginate(page: params[:page], per_page: 10)
     end
 
     def show; end

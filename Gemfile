@@ -28,6 +28,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'validates_email_format_of', '~> 1.6', '>= 1.6.3'
 gem 'pg'
 gem 'omniauth-google-oauth2'
+gem 'will_paginate', '~> 3.1.0'
 
 group :development do
   gem 'better_errors'
