@@ -1,8 +1,8 @@
 = render 'application/search'
-
-%h1 Store Product
-.row.placeholders
-- cache ['store', Product.all] do
-  - @products.each do |product|
-    - cache ['entry', product] do
-      = render partial: 'product', locals: { product: product }
+%h3 Store Product
+.jumbotron
+  .row.placeholders
+  - cache ['store', Product.all] do
+    - @products.each do |product|
+      - cache ['entry', product] do
+        = render partial: 'product', locals: { product: product }

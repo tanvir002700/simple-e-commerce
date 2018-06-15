@@ -1,7 +1,12 @@
-.col-xs-6.col-sm-3.placeholder.entry
-  = image_tag(product.img_url, class: 'img-responsive', size: '200x200')
-  %h4= product.title
-  %p= truncate(product.description, length: 100)
-  %span
-    %strong= number_to_currency(product.price)
-  = button_to 'add to cart' , line_items_path(product_id: product)
+.col-md-3
+  .card.mb-3
+    %h3.card-header= product.title
+    .card-body
+      %h6.card-subtitle.text-muted= truncate(product.description, length:100)
+      = image_tag(product.img_url, class: 'img-responsive', size: '150')
+    .card-body
+      %p.card-text= number_to_currency(product.price)
+    .card-body
+      .row
+        = button_to 'add to cart' , line_items_path(product_id: product)
+        = link_to 'Details', '', class: 'btn btn-success'

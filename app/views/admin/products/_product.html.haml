@@ -3,6 +3,7 @@
   %td=  truncate(product.description, length: 100)
   %td= image_tag(product.img_url, size: '100x100')
   %td= product.price
-  %td= link_to 'Show', [:admin, product]
-  %td= link_to 'Edit', edit_admin_product_path(product)
-  %td= link_to 'Destroy', [:admin, product], :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %td
+    = link_to 'Show', [:admin, product], class: 'btn btn-success'
+    = link_to 'Edit', edit_admin_product_path(product), class: 'btn btn-info'
+    = link_to 'Destroy', [:admin, product], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
