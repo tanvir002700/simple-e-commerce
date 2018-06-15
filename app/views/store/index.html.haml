@@ -1,8 +1,15 @@
 %h4 Store Product
 = render 'application/search'
+
+.digg_pagination
+  .page_info
+    = page_entries_info @products
+  = will_paginate @products, :container => false
+
 .jumbotron
   .row.placeholders
   - cache ['store', Product.all] do
     - @products.each do |product|
       - cache ['entry', product] do
         = render partial: 'product', locals: { product: product }
+
