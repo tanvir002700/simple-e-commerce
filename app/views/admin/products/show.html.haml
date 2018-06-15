@@ -1,17 +1,4 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @product.title
-%p
-  %b Description:
-  = @product.description
-%p
-  %b Img url:
-  = image_tag @product.img_url, size: '500'
-%p
-  %b Price:
-  = @product.price
+= render 'shared/product'
 
 = link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-info'
 \|
