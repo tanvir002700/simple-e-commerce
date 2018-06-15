@@ -1,6 +1,6 @@
 %tr
-  %td= product.title
-  %td=  truncate(product.description, length: 100)
+  %td{width: '10%'}= product.title
+  %td{width: '50%'}=  truncate(product.description, length: 100)
   %td= image_tag(product.img_url, size: '100x100')
   %td= product.price
   %td
